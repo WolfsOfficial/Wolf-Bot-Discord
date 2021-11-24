@@ -15,14 +15,14 @@ sad_words = ["sad", "Sad", "depressed", "Depressed", "unhappy", "Unhappy", "angr
 starter_encouragements = [
   "Cheer up!",
   "Hang in there.",
-  "You are a great person / bot!"
-  "You can do it!"
-  "We Believe in you!"
-  "Don't give up!"
-  "Keep trying!"
-  "Everything you need to accomplish your goals is already in you."
-  "Be gentle with yourself. You’re doing the best you can!"
-  "Sometimes when you are in a dark place you think you have been buried, but actually you have been planted."
+  "You are a great person / bot!",
+  "You can do it!",
+  "We Believe in you!",
+  "Don't give up!",
+  "Keep trying!",
+  "Everything you need to accomplish your goals is already in you.",
+  "Be gentle with yourself. You’re doing the best you can!",
+  "Sometimes when you are in a dark place you think you have been buried, but actually you have been planted.",
 ]
 
 if "responding" not in db.keys():
@@ -184,7 +184,7 @@ async def on_message(message):
   if msg.startswith('Hello'):
       await message.reply('Hi there {0.author.mention}!'.format(message))
 
-  if msg.startswith('Hello'):
+  if msg.startswith('hello'):
       await message.reply('Hi there {0.author.mention}!'.format(message))
 
   if msg.startswith('Hello!'):
