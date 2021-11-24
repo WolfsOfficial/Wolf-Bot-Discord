@@ -7,9 +7,11 @@ from replit import db
 from keep_alive import keep_alive
 import logging
 
+#Dictionary Starts
 client = discord.Client()
 
 sad_words = ["sad", "Sad", "depressed", "Depressed", "unhappy", "Unhappy", "angry", "Angry", "miserable", "Miserable", "misery", "Misery", "sadness", "Sadness"]
+#Dictionary finishes
 
 #Encouragements listed below will be outputed by the bot when any user uses command: "$Encouragement"
 starter_encouragements = [
@@ -52,6 +54,7 @@ def delete_encouragment(index):
 async def on_ready():
   print("We have logged in as {0.user} Please wait while we boot up!".format(client))
 
+#Replies Start now
 @client.event
 async def on_message(message):
   if message.author == client.user:
@@ -104,7 +107,7 @@ async def on_message(message):
       db["responding"] = False
       await message.channel.send("Responding is off.")
 
-#Anything stated below but also before "msg = message.content" is what the Bot will output when any user says said words on the server.
+#Replies stated below is what the BOT will output AFTER any USER says what's defined after: "startswith" on the server.
 
   if msg.startswith('yay'):
       await message.reply('Awesome!')
@@ -165,7 +168,28 @@ async def on_message(message):
             
   if msg.startswith('What\'s my name?'):
       await message.reply('It\'s {0.author.mention} of course!'.format(message))
-            
+
+  if msg.startswith('Whats my name?'):
+      await message.reply('It\'s {0.author.mention} of course!'.format(message))
+
+  if msg.startswith('what\'s my name?'):
+      await message.reply('It\'s {0.author.mention} of course!'.format(message))
+
+  if msg.startswith('whats my name?'):
+      await message.reply('It\'s {0.author.mention} of course!'.format(message))
+
+  if msg.startswith('What\'s my name'):
+      await message.reply('It\'s {0.author.mention} of course!'.format(message))
+
+  if msg.startswith('Whats my name'):
+      await message.reply('It\'s {0.author.mention} of course!'.format(message))
+
+  if msg.startswith('what\'s my name'):
+      await message.reply('It\'s {0.author.mention} of course!'.format(message))
+
+  if msg.startswith('whats my name'):
+      await message.reply('It\'s {0.author.mention} of course!'.format(message))
+
   if msg.startswith('What\'s my role?'):
       await message.reply(' Your current role is: <@&${ROLE_ID}>'.format(message))
 
@@ -192,6 +216,9 @@ async def on_message(message):
 
   if msg.startswith('hello!'):
       await message.reply('Hi there {0.author.mention}!'.format(message))
+#Replies Finish Here
+
+
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
