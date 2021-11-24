@@ -9,7 +9,7 @@ import logging
 
 client = discord.Client()
 
-sad_words = ["sad", "Sad", "depressed", "Depressed", "unhappy", "Unhappy", "angry", "Angry", "miserable", "Miserable", "misery", "Misery"]
+sad_words = ["sad", "Sad", "depressed", "Depressed", "unhappy", "Unhappy", "angry", "Angry", "miserable", "Miserable", "misery", "Misery", "sadness", "Sadness"]
 
 #Encouragements listed below will be outputed by the bot when any user uses command: "$Encouragement"
 starter_encouragements = [
@@ -19,7 +19,10 @@ starter_encouragements = [
   "You can do it!"
   "We Believe in you!"
   "Don't give up!"
-  "Keep trying!" 
+  "Keep trying!"
+  "Everything you need to accomplish your goals is already in you."
+  "Be gentle with yourself. You’re doing the best you can!"
+  "Sometimes when you are in a dark place you think you have been buried, but actually you have been planted."
 ]
 
 if "responding" not in db.keys():
@@ -56,7 +59,11 @@ async def on_message(message):
 
   msg = message.content
 
-  if msg.startswith("$inspire"):
+  if msg.startswith("$Inspire me!"):
+    quote = get_quote()
+    await message.channel.send(quote)
+
+  if msg.startswith("$inspire me!"):
     quote = get_quote()
     await message.channel.send(quote)
 
@@ -116,6 +123,9 @@ async def on_message(message):
     
   if msg.startswith('Cool!'):
       await message.reply('You are ineed!')
+  
+  if msg.startswith('Neato!'):
+      await message.reply('Right!')
 
   if msg.startswith('I need help from Wolf!'):
       await message.reply('<@352658813028925450> Please help!')
@@ -151,17 +161,37 @@ async def on_message(message):
       await message.reply('<@707681681074814977> Please help!')
 
   if msg.startswith('I need help from dread'):
-      await message.reply('<@911664002197749893> Please help!')
-
-  if msg.startswith('Neato!'):
-      await message.replyd('Right!')  
+      await message.reply('<@911664002197749893> Please help!') 
             
   if msg.startswith('What\'s my name?'):
       await message.reply('It\'s {0.author.mention} of course!'.format(message))
             
   if msg.startswith('What\'s my role?'):
-      await message.reply(' Your current role is: <@&${ROLE_ID}>')
+      await message.reply(' Your current role is: <@&${ROLE_ID}>'.format(message))
 
+  if msg.startswith('Hi there'):
+      await message.reply('Hello {0.author.mention}!'.format(message))
+
+  if msg.startswith('hi there'):
+      await message.reply('Hello {0.author.mention}!'.format(message))
+
+  if msg.startswith('Hi there!'):
+      await message.reply('Hello {0.author.mention}!'.format(message))
+
+  if msg.startswith('hi there!'):
+      await message.reply('Hello {0.author.mention}!'.format(message))
+
+  if msg.startswith('Hello'):
+      await message.reply('Hi there {0.author.mention}!'.format(message))
+
+  if msg.startswith('Hello'):
+      await message.reply('Hi there {0.author.mention}!'.format(message))
+
+  if msg.startswith('Hello!'):
+      await message.reply('Hi there {0.author.mention}!'.format(message))
+
+  if msg.startswith('hello!'):
+      await message.reply('Hi there {0.author.mention}!'.format(message))
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
