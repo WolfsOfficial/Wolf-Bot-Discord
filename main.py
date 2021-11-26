@@ -111,43 +111,28 @@ async def on_message(message):
 
   if msg.startswith('yay'):
       await message.reply('Awesome!')
-        
-  if msg.startswith('yay!'):
-      await message.reply('Awesome!')
 
   if msg.startswith('Yay'):
       await message.reply('Awesome!')
-
-  if msg.startswith('Yay!'):
-      await message.reply('Awesome!')
     
-  if msg.startswith('cool!'):
+  if msg.startswith('cool'):
       await message.reply('You are ineed!')
     
-  if msg.startswith('Cool!'):
+  if msg.startswith('Cool'):
       await message.reply('You are ineed!')
   
-  if msg.startswith('Neato!'):
+  if msg.startswith('Neato'):
       await message.reply('Right!')
 
-  if msg.startswith('I need help from Wolf!'):
-      await message.reply('<@352658813028925450> Please help!')
+  if msg.startswith('Am I Right'):
+      await message.reply('Uh, yes! Yes you are right!')
 
-  if msg.startswith('I need help from France!'):
-      await message.reply('<@707681681074814977> Please help!')
+  if msg.startswith('Am I right'):
+      await message.reply('Uh, yes! Yes you are right!')
 
-  if msg.startswith('I need help from Dread!'):
-      await message.reply('<@911664002197749893> Please help!')
+  if msg.startswith('am I right'):
+      await message.reply('Uh, yes! Yes you are right!')              
 
-  if msg.startswith('I need help from wolf!'):
-      await message.reply('<@352658813028925450> Please help!')
-
-  if msg.startswith('I need help from france!'):
-      await message.reply('<@707681681074814977> Please help!')
-
-  if msg.startswith('I need help from dread!'):
-      await message.reply('<@911664002197749893> Please help!')
-  
   if msg.startswith('I need help from Wolf'):
       await message.reply('<@352658813028925450> Please help!')
 
@@ -166,18 +151,6 @@ async def on_message(message):
   if msg.startswith('I need help from dread'):
       await message.reply('<@911664002197749893> Please help!') 
             
-  if msg.startswith('What\'s my name?'):
-      await message.reply('It\'s {0.author.mention} of course!'.format(message))
-
-  if msg.startswith('Whats my name?'):
-      await message.reply('It\'s {0.author.mention} of course!'.format(message))
-
-  if msg.startswith('what\'s my name?'):
-      await message.reply('It\'s {0.author.mention} of course!'.format(message))
-
-  if msg.startswith('whats my name?'):
-      await message.reply('It\'s {0.author.mention} of course!'.format(message))
-
   if msg.startswith('What\'s my name'):
       await message.reply('It\'s {0.author.mention} of course!'.format(message))
 
@@ -190,7 +163,7 @@ async def on_message(message):
   if msg.startswith('whats my name'):
       await message.reply('It\'s {0.author.mention} of course!'.format(message))
 
-  if msg.startswith('What\'s my role?'):
+  if msg.startswith('What\'s my role'):
       await message.reply(' Your current role is: <@&${ROLE_ID}>'.format(message))
 
   if msg.startswith('Hi there'):
@@ -199,25 +172,13 @@ async def on_message(message):
   if msg.startswith('hi there'):
       await message.reply('Hello {0.author.mention}!'.format(message))
 
-  if msg.startswith('Hi there!'):
-      await message.reply('Hello {0.author.mention}!'.format(message))
-
-  if msg.startswith('hi there!'):
-      await message.reply('Hello {0.author.mention}!'.format(message))
-
   if msg.startswith('Hello'):
       await message.reply('Hi there {0.author.mention}!'.format(message))
 
   if msg.startswith('hello'):
       await message.reply('Hi there {0.author.mention}!'.format(message))
 
-  if msg.startswith('Hello!'):
-      await message.reply('Hi there {0.author.mention}!'.format(message))
-
-  if msg.startswith('hello!'):
-      await message.reply('Hi there {0.author.mention}!'.format(message))
 #Replies Finish Here
-
 
 
 logger = logging.getLogger('discord')
