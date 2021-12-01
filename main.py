@@ -5,10 +5,31 @@ import json
 import random
 from replit import db
 from keep_alive import keep_alive
+from discord.ext import commands
 import logging
+from dotenv import load_dotenv
+import replies
+import sends
+
+load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
+GUILD = os.getenv('DISCORD_GUILD')
 
 #Dictionary Starts
 client = discord.Client()
+bot = commands.Bot(command_prefix = '#')
+
+#When bot is ready, it prints out the declaring it is ready
+@client.event
+async def on_ready():
+  print("We have logged in as {0.user} Please wait while we boot up!".format(client))
+  print(f'{client.user.name} has connected to Discord!')
+
+@bot.command()
+async def whereAmI(ctx, *, messageContents):
+    link = await ctx.channel.create_invite(max_age = 300)
+    message = f'You are in {ctx.message.guild.name} in the {ctx.message.channel.mention} channel with an invite link of ' + link
+    await ctx.message.author.send(message)
 
 sad_words = ["sad", "Sad", "depressed", "Depressed", "unhappy", "Unhappy", "angry", "Angry", "miserable", "Miserable", "misery", "Misery", "sadness", "Sadness"]
 #Dictionary finishes
@@ -50,10 +71,6 @@ def delete_encouragment(index):
     del encouragements[index]
   db["encouragements"] = encouragements
 
-@client.event
-async def on_ready():
-  print("We have logged in as {0.user} Please wait while we boot up!".format(client))
-
 #Replies Start now
 @client.event
 async def on_message(message):
@@ -62,11 +79,20 @@ async def on_message(message):
 
   msg = message.content
 
+#Replies for inspire start
   if msg.startswith("$Inspire me!"):
     quote = get_quote()
     await message.channel.send(quote)
 
   if msg.startswith("$inspire me!"):
+    quote = get_quote()
+    await message.channel.send(quote)
+
+  if msg.startswith("$Inspire me"):
+    quote = get_quote()
+    await message.channel.send(quote)
+
+  if msg.startswith("$inspire me"):
     quote = get_quote()
     await message.channel.send(quote)
 
@@ -106,6 +132,7 @@ async def on_message(message):
     else:
       db["responding"] = False
       await message.channel.send("Responding is off.")
+#Replies for inspire end
 
 #Replies stated below is what the BOT will output AFTER any USER says what's defined after: "startswith" on the server.
 
@@ -166,10 +193,10 @@ async def on_message(message):
   if msg.startswith('What\'s my role'):
       await message.reply(' Your current role is: <@&${ROLE_ID}>'.format(message))
 
-  if msg.startswith('Hi there'):
+  if msg.startswith("Hi there"):
       await message.reply('Hello {0.author.mention}!'.format(message))
 
-  if msg.startswith('hi there'):
+  if msg.startswith("hi there"):
       await message.reply('Hello {0.author.mention}!'.format(message))
 
   if msg.startswith('Hello'):
@@ -178,8 +205,40 @@ async def on_message(message):
   if msg.startswith('hello'):
       await message.reply('Hi there {0.author.mention}!'.format(message))
 
+  if msg.startswith('helo'):
+      await message.reply('Awaiting response from email server! {0.author.mention}!'.format(message))
+
+  if msg.startswith('Helo'):
+      await message.reply('Awaiting response from email server! {0.author.mention}!'.format(message))
+
+  if msg.startswith('happy birthday'):
+      await message.channel.send('Happy Birthday! 🎈🎉')
+
+  if msg.startswith('Happy Birthday'):
+      await message.channel.send('Happy Birthday! 🎈🎉')
+
+  if msg.startswith('Happy birthday'):
+      await message.channel.send('Happy Birthday! 🎈🎉')
+
+  if msg.startswith('happy Birthday'):
+      await message.channel.send('Happy Birthday! 🎈🎉')
+
+
+  Random_Word = [
+      'Something Random', 'The Pink Alphabet', 'Purple polkadot monkeys!', '123... 456... 78, okay thats enough', 'what? you want a random word? NO!', 'this is an Official Message from <@912504068612698132>', 'This is random message for{0.author.mention}!'.format(message), 'I will not!',
+  ]
+
+  if message.content == '$Random word':
+      response = random.choice(Random_Word)
+      await message.channel.send(response)
+
 #Replies Finish Here
 
+#Joke Generator starts now
+
+#WIP
+
+#Joke Generator ends now
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
