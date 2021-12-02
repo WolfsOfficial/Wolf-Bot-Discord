@@ -28,6 +28,15 @@ async def whereAmI(ctx, *, messageContents):
     message = f'You are in {ctx.message.guild.name} in the {ctx.message.channel.mention} channel with an invite link of ' + link
     await ctx.message.author.send(message)
 
+#DM new member joining starts now
+@client.event
+async def on_member_join(member):
+    await member.create_dm()
+    await member.dm_channel.send(
+        f'Hi {member.name}, welcome to the Black Ops Special Forces Server! We ask that you check out our rules and announcments before posting. If you have any questions or need help say "I need help from mods" in chat'
+    )
+
+#DM new member joining ends now
 
 #Replies Start now
 @client.event
@@ -102,7 +111,11 @@ async def on_message(message):
   if msg.startswith('Am I right'):
       await message.reply('Uh, yes! Yes you are right!')
   if msg.startswith('am I right'):
-      await message.reply('Uh, yes! Yes you are right!')              
+      await message.reply('Uh, yes! Yes you are right!')
+  if msg.startswith('am i right'):
+      await message.reply('Uh, yes! Yes you are right!')
+  if msg.startswith('Am i right'):
+      await message.reply('Uh, yes! Yes you are right!')
 
   if msg.startswith('I need help from Wolf'):
       await message.reply('<@352658813028925450> Please help!')
@@ -116,6 +129,8 @@ async def on_message(message):
       await message.reply('<@707681681074814977> Please help!')
   if msg.startswith('I need help from dread'):
       await message.reply('<@911664002197749893> Please help!') 
+  if msg.startswith('I need help from mods'):
+      await message.reply('<@911664002197749893>, <@707681681074814977>, and/or <@352658813028925450> Please help {0.author.mention}!'.format(message))
 
   if msg.startswith('What\'s my name'):
       await message.reply('It\'s {0.author.mention} of course!'.format(message))
@@ -173,5 +188,4 @@ handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(me
 logger.addHandler(handler)
 
 keep_alive()
-
 client.run(os.getenv('TOKEN'))
