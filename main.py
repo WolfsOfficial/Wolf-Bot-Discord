@@ -1,6 +1,7 @@
 import discord
 import os
 import random
+import requests
 from replit import db
 from keep_alive import keep_alive
 from discord.ext import commands
@@ -177,9 +178,28 @@ async def on_message(message):
 
 #Joke Generator starts now
 
-#WIP
+  if message.content == '$Generate joke':
+      response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
+      await message.reply(response.text)
+  if message.content == '$generate joke':
+      response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
+      await message.reply(response.text)
+  if message.content == 'tell me a joke':
+      response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
+      await message.reply(response.text)
+  if message.content == 'Tell me a joke':
+      response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
+      await message.reply(response.text)
 
 #Joke Generator ends now
+
+#Tell time starts now
+  if msg.startswith('Tell me the time'):
+    await message.reply('Whoops! This command isn\'t coded in yet, try again later or ask <@352658813028925450> on the status of said command')
+  if msg.startswith('tell me the time'):
+    await message.reply('Whoops! This command isn\'t coded in yet, try again later or ask <@352658813028925450> on the status of said command')
+
+#Tell time ends now
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
