@@ -48,10 +48,10 @@ async def on_message(message):
   msg = message.content
 
 #Replies for inspire start
-  if msg.startswith("$Inspire me!"):
+  if msg.startswith("$Inspire Me"):
     quote = responses.get_quote()
     await message.channel.send(quote)
-  if msg.startswith("$inspire me!"):
+  if msg.startswith("$inspire Me"):
     quote = responses.get_quote()
     await message.channel.send(quote)
   if msg.startswith("$Inspire me"):
@@ -169,8 +169,21 @@ async def on_message(message):
   if msg.startswith('happy Birthday'):
       await message.channel.send('Happy Birthday! 🎈🎉')
 
+  Random_Word = [
+      'Something Random', 'The Pink Alphabet', 'Purple polkadot monkeys!', '123... 456... 78, okay thats enough', 'what? you want a random word? NO!', 'this is an Official Message from <@912504068612698132>', 'This is random message for{0.author.mention}!'.format(message), 'I will not!',
+  ]
+
   if message.content == '$Random word':
-      response = random.choice(responses.Random_Word)
+      response = random.choice(Random_Word)
+      await message.channel.send(response)
+  if message.content == '$random Word':
+      response = random.choice(Random_Word)
+      await message.channel.send(response)
+  if message.content == '$Random Word':
+      response = random.choice(Random_Word)
+      await message.channel.send(response)
+  if message.content == '$Random Word':
+      response = random.choice(Random_Word)
       await message.channel.send(response)
 
 #Replies Finish Here

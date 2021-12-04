@@ -2,7 +2,7 @@ import discord
 import requests
 import json
 from replit import db
-import random
+
 
 client = discord.Client()
 
@@ -46,16 +46,3 @@ def delete_encouragment(index):
     del encouragements[index]
   db["encouragements"] = encouragements
 
-
-@client.event
-async def on_message(message):
-  if message.author == client.user:
-    return
-
-  Random_Word = [
-      'Something Random', 'The Pink Alphabet', 'Purple polkadot monkeys!', '123... 456... 78, okay thats enough', 'what? you want a random word? NO!', 'this is an Official Message from <@912504068612698132>', 'This is random message for{0.author.mention}!'.format(message), 'I will not!',
-  ]
-
-  if message.content == '$Random word':
-      response = random.choice(Random_Word)
-      await message.channel.send(response)
