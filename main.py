@@ -98,92 +98,91 @@ async def on_message(message):
 #Replies stated below is what the BOT will output AFTER any USER says what's defined after: "startswith" on the server.
 
   if msg.startswith('yay'):
-      await message.reply('Awesome!')
+      await message.reply(responses.res1)
   if msg.startswith('Yay'):
-      await message.reply('Awesome!')
+      await message.reply(responses.res1)
   if msg.startswith('cool'):
-      await message.reply('You are ineed!')
+      await message.reply(responses.res2)
   if msg.startswith('Cool'):
-      await message.reply('You are ineed!')
+      await message.reply(responses.res2)
   if msg.startswith('Neato'):
-      await message.reply('Right!')
+      await message.reply(responses.res3)
   if msg.startswith('Am I Right'):
-      await message.reply('Uh, yes! Yes you are right!')
+      await message.reply(responses.res4)
   if msg.startswith('Am I right'):
-      await message.reply('Uh, yes! Yes you are right!')
+      await message.reply(responses.res4)
   if msg.startswith('am I right'):
-      await message.reply('Uh, yes! Yes you are right!')
+      await message.reply(responses.res4)
   if msg.startswith('am i right'):
-      await message.reply('Uh, yes! Yes you are right!')
+      await message.reply(responses.res4)
   if msg.startswith('Am i right'):
-      await message.reply('Uh, yes! Yes you are right!')
+      await message.reply(responses.res4)
 
   if msg.startswith('I need help from Wolf'):
-      await message.reply('<@352658813028925450> Please help!')
+      await message.reply(responses.res5_0)
   if msg.startswith('I need help from France'):
-      await message.reply('<@707681681074814977> Please help!')
+      await message.reply(responses.res5_1)
   if msg.startswith('I need help from Dread'):
-      await message.reply('<@911664002197749893> Please help!')
+      await message.reply(responses.res5_2)
   if msg.startswith('I need help from wolf'):
-      await message.reply('<@352658813028925450> Please help!')
+      await message.reply(responses.res5_0)
   if msg.startswith('I need help from france'):
-      await message.reply('<@707681681074814977> Please help!')
+      await message.reply(responses.res5_1)
   if msg.startswith('I need help from dread'):
-      await message.reply('<@911664002197749893> Please help!') 
+      await message.reply(responses.res5_2) 
   if msg.startswith('I need help from mods'):
-      await message.reply('<@911664002197749893>, <@707681681074814977>, and/or <@352658813028925450> Please help {0.author.mention}!'.format(message))
+      await message.reply(responses.res6.format(message))
 
-  if msg.startswith('What\'s my name'):
-      await message.reply('It\'s {0.author.mention} of course!'.format(message))
+  if msg.startswith("What's my name"):
+      await message.reply(responses.res7.format(message))
   if msg.startswith('Whats my name'):
-      await message.reply('It\'s {0.author.mention} of course!'.format(message))
-  if msg.startswith('what\'s my name'):
-      await message.reply('It\'s {0.author.mention} of course!'.format(message))
+      await message.reply(responses.res7.format(message))
+  if msg.startswith("what's my name"):
+      await message.reply(responses.res7.format(message))
   if msg.startswith('whats my name'):
-      await message.reply('It\'s {0.author.mention} of course!'.format(message))
-  if msg.startswith('What\'s my role'):
-      await message.reply(' Your current role is: <@&${ROLE_ID}>'.format(message))
+      await message.reply(responses.res7.format(message))
+  if msg.startswith("What's my role"):
+      await message.reply(responses.res8.format(message))
   if msg.startswith("Hi there"):
-      await message.reply('Hello {0.author.mention}!'.format(message))
+      await message.reply(responses.res9_0.format(message))
   if msg.startswith("hi there"):
-      await message.reply('Hello {0.author.mention}!'.format(message))
+      await message.reply(responses.res9_0.format(message))
   if msg.startswith('Hello'):
-      await message.reply('Hi there {0.author.mention}!'.format(message))
+      await message.reply(responses.res9_1.format(message))
   if msg.startswith('hello'):
-      await message.reply('Hi there {0.author.mention}!'.format(message))
+      await message.reply(responses.res9_1.format(message))
   if msg.startswith('helo'):
-      await message.reply('Awaiting response from email server! {0.author.mention}!'.format(message))
+      await message.reply(responses.res10.format(message))
   if msg.startswith('Helo'):
-      await message.reply('Awaiting response from email server! {0.author.mention}!'.format(message))
+      await message.reply(responses.res10.format(message))
   if msg.startswith('$Testing'):
-      await message.channel.send('Testing 1.2.3.! Yep its working {0.author.mention}'.format(message))
+      await message.channel.send(responses.res11.format(message))
   if msg.startswith('$testing'):
-      await message.channel.send('Testing 1.2.3.! Yep its working {0.author.mention}'.format(message))      
+      await message.channel.send(responses.res11.format(message))      
 
   if msg.startswith('happy birthday'):
-      await message.channel.send('Happy Birthday! 🎈🎉')
+      await message.channel.send(responses.res12)
   if msg.startswith('Happy Birthday'):
-      await message.channel.send('Happy Birthday! 🎈🎉')
+      await message.channel.send(responses.res12)
   if msg.startswith('Happy birthday'):
-      await message.channel.send('Happy Birthday! 🎈🎉')
+      await message.channel.send(responses.res12)
   if msg.startswith('happy Birthday'):
-      await message.channel.send('Happy Birthday! 🎈🎉')
+      await message.channel.send(responses.res12)
 
-  Random_Word = [
-      'Something Random', 'The Pink Alphabet', 'Purple polkadot monkeys!', '123... 456... 78, okay thats enough', 'what? you want a random word? NO!', 'this is an Official Message from <@912504068612698132>', 'This is random message for{0.author.mention}!'.format(message), 'I will not!',
-  ]
+  if msg.startswith('testingabc'):
+      await message.reply(responses.res1)
 
   if message.content == '$Random word':
-      response = random.choice(Random_Word)
+      response = random.choice(responses.Random_Word)
       await message.channel.send(response)
   if message.content == '$random Word':
-      response = random.choice(Random_Word)
+      response = random.choice(responses.Random_Word)
       await message.channel.send(response)
   if message.content == '$Random Word':
-      response = random.choice(Random_Word)
+      response = random.choice(responses.Random_Word)
       await message.channel.send(response)
   if message.content == '$Random Word':
-      response = random.choice(Random_Word)
+      response = random.choice(responses.Random_Word)
       await message.channel.send(response)
 
 #Replies Finish Here
@@ -192,17 +191,13 @@ async def on_message(message):
 #Joke Generator starts now
 
   if message.content == '$Generate joke':
-      response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
-      await message.reply(response.text)
+      await message.reply(responses.joke_response.text)
   if message.content == '$generate joke':
-      response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
-      await message.reply(response.text)
+      await message.reply(responses.joke_response.text)
   if message.content == 'tell me a joke':
-      response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
-      await message.reply(response.text)
+      await message.reply(responses.joke_response.text)
   if message.content == 'Tell me a joke':
-      response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
-      await message.reply(response.text)
+      await message.reply(responses.joke_response.text)
 
 #Joke Generator ends now
 

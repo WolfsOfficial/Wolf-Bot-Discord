@@ -46,3 +46,28 @@ def delete_encouragment(index):
     del encouragements[index]
   db["encouragements"] = encouragements
 
+
+
+Random_Word = [
+      'Something Random', 'The Pink Alphabet', 'Purple polkadot monkeys!', '123... 456... 78, okay thats enough', 'what? you want a random word? NO!', 'this is an Official Message from <@912504068612698132>', "'This is random message for{0.author.mention}!'.format(message)", 'I will not!',
+]
+
+joke_response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
+
+#If you are updating the responses, instead of updating every number in the sequence below, add an "_" after the number before the new response IE: (Response 3) NEW LINE (Response 3_1) etc. 
+
+res1 = "Awesome!"
+res2 = "You are indeed!"
+res3 = "Right!"
+res4 = "Uh, yes! Yes you are right!"
+res5_0 = "<@352658813028925450> Please help!"
+res5_1 = '<@707681681074814977> Please help!'
+res5_2 = '<@911664002197749893> Please help!'
+res6 = '<@911664002197749893>, <@707681681074814977>, and/or <@352658813028925450> Please help {0.author.mention}!'
+res7 = "It's {0.author.mention} of course!"
+res8 = ' Your current role is: <@&${ROLE_ID}>'
+res9_0 = 'Hello {0.author.mention}!'
+res9_1 = 'Hi there {0.author.mention}!'
+res10 = 'This is not an email server! {0.author.mention} silly!'
+res11 = 'Testing 1.2.3.! Yep its working {0.author.mention}'
+res12 = 'Happy Birthday! 🎈🎉'
