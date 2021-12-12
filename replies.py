@@ -1,64 +1,26 @@
 import discord
-import os
 import random
 from replit import db
-from keep_alive import keep_alive
-from discord.ext import commands
-import logging
-from dotenv import load_dotenv
 import responses
-import requests
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
-GUILD = os.getenv('DISCORD_GUILD')
-
-#Dictionary Starts
 client = discord.Client()
-bot = commands.Bot(command_prefix = '#')
 
-#When bot is ready, it prints out the statement below declaring it is ready.
-@client.event
-async def on_ready():
-  print("We have logged in as {0.user} Please wait while we boot up!".format(client))
-  print(f'{client.user.name} has connected to Discord!')
-
-@bot.command()
-async def whereAmI(ctx, *, messageContents):
-    link = await ctx.channel.create_invite(max_age = 300)
-    message = f'You are in {ctx.message.guild.name} in the {ctx.message.channel.mention} channel with an invite link of ' + link
-    await ctx.message.author.send(message)
-
-#DM new member joining starts now.
-@client.event
-async def on_member_join(member):
-    await member.create_dm()
-    await member.dm_channel.send(
-        f'Hi {member.name}, welcome to the Black Ops Special Forces Server! We ask that you check out our rules and announcments before posting. If you have any questions or need help say "I need help from mods" in chat'
-    )
-
-#DM new member joining ends now.
-
-#Replies Start now.
 @client.event
 async def on_message(message):
   if message.author == client.user:
     return
 
   msg = message.content
+  quote = responses.get_quote()
 
-#Replies for inspire start.
+#Replies for inspire start
   if msg.startswith("$Inspire Me"):
-    quote = responses.get_quote()
     await message.channel.send(quote)
   if msg.startswith("$inspire Me"):
-    quote = responses.get_quote()
     await message.channel.send(quote)
   if msg.startswith("$Inspire me"):
-    quote = responses.get_quote()
     await message.channel.send(quote)
   if msg.startswith("$inspire me"):
-    quote = responses.get_quote()
     await message.channel.send(quote)
 
   if db["responding"]:
@@ -93,7 +55,7 @@ async def on_message(message):
       db["responding"] = False
       await message.channel.send("Responding is off.")
 
-#Replies for inspire end.
+#Replies for inspire end
 
 #Replies stated below is what the BOT will output AFTER any USER says what's defined after: "startswith" on the server.
 
@@ -174,51 +136,35 @@ async def on_message(message):
 
   if message.content == '$Random word':
       response = random.choice(responses.Random_Word)
-      await message.reply(responses.res13)
-      await message.reply(response)
+      await message.channel.send(response)
   if message.content == '$random Word':
       response = random.choice(responses.Random_Word)
-      await message.reply(responses.res13)
-      await message.reply(response)
+      await message.channel.send(response)
   if message.content == '$Random Word':
       response = random.choice(responses.Random_Word)
-      await message.reply(responses.res13)
-      await message.reply(response)
+      await message.channel.send(response)
   if message.content == '$Random Word':
       response = random.choice(responses.Random_Word)
-      await message.reply(responses.res13)
-      await message.reply(response)
+      await message.channel.send(response)
 
-#Replies Finish Here.
+#Replies Finish Here
 
 
-#Joke Generator starts now.
-  joke_response = requests.get("https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political,racist,sexist,explicit&format=txt")
+#Joke Generator starts now
 
   if message.content == '$Generate joke':
-      await message.reply(joke_response.text)
+      await message.reply(responses.joke_response.text)
   if message.content == '$generate joke':
-      await message.reply(joke_response.text)
+      await message.reply(responses.joke_response.text)
   if message.content == 'tell me a joke':
-      await message.reply(joke_response.text)
+      await message.reply(responses.joke_response.text)
   if message.content == 'Tell me a joke':
-      await message.reply(joke_response.text)
+      await message.reply(responses.joke_response.text)
 
 #Joke Generator ends now
 
 #Tell time starts now
   if msg.startswith('Tell me the time'):
-    await message.reply(responses.res000)
+    await message.reply('Whoops! This command isn\'t coded in yet, try again later or ask <@352658813028925450> on the status of said command')
   if msg.startswith('tell me the time'):
-    await message.reply(responses.res000)
-
-#Tell time ends now
-
-logger = logging.getLogger('discord')
-logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
-logger.addHandler(handler)
-
-keep_alive()
-client.run(os.getenv('TOKEN'))
+    await message.reply('Whoops! This command isn\'t coded in yet, try again later or ask <@352658813028925450> on the status of said command')
