@@ -8,7 +8,6 @@ import logging
 from dotenv import load_dotenv
 import responses
 import requests
-from time import time
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
