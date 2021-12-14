@@ -8,6 +8,7 @@ import logging
 from dotenv import load_dotenv
 import responses
 import requests
+from time import time
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -172,22 +173,36 @@ async def on_message(message):
   if msg.startswith('testingabc'):
       await message.reply(responses.res1)
 
-  if message.content == '$Random word':
-      response = random.choice(responses.Random_Word)
-      await message.reply(responses.res13)
-      await message.reply(response)
-  if message.content == '$random Word':
-      response = random.choice(responses.Random_Word)
-      await message.reply(responses.res13)
-      await message.reply(response)
-  if message.content == '$Random Word':
-      response = random.choice(responses.Random_Word)
-      await message.reply(responses.res13)
-      await message.reply(response)
-  if message.content == '$Random Word':
-      response = random.choice(responses.Random_Word)
-      await message.reply(responses.res13)
-      await message.reply(response)
+
+  random_response = random.choice(responses.Random_Phrase)
+
+  if message.content == '$Random phrase':
+      await message.reply(responses.res01)
+      await message.reply(random_response.format(message))
+  if message.content == '$random Phrase':
+      await message.reply(responses.res01)
+      await message.reply(random_response.format(message))
+  if message.content == '$Random Phrase':
+      await message.reply(responses.res01)
+      await message.reply(random_response.format(message))
+  if message.content == '$random phrase':
+      await message.reply(responses.res01)
+      await message.reply(random_response.format(message))
+
+  insult_response = random.choice(responses.Insult)
+
+  if message.content == 'Insult me':
+      await message.reply(responses.res02)
+      await message.reply(insult_response.format(message))
+  if message.content == 'insult Me':
+      await message.reply(responses.res02)
+      await message.reply(insult_response.format(message))
+  if message.content == 'Insult Me':
+      await message.reply(responses.res02)
+      await message.reply(insult_response.format(message))
+  if message.content == 'insult me':
+      await message.reply(responses.res02)
+      await message.reply(insult_response.format(message))
 
 #Replies Finish Here.
 
@@ -208,9 +223,17 @@ async def on_message(message):
 
 #Tell time starts now
   if msg.startswith('Tell me the time'):
-    await message.reply(responses.res000)
+    await message.reply(responses.res_time)
+    await message.reply(responses.res03)
   if msg.startswith('tell me the time'):
-    await message.reply(responses.res000)
+    await message.reply(responses.res_time)
+    await message.reply(responses.res03)
+  if msg.startswith('$time'):
+    await message.reply(responses.res_time)
+    await message.reply(responses.res03)
+  if msg.startswith('$Time'):
+    await message.reply(responses.res_time)
+    await message.reply(responses.res03)
 
 #Tell time ends now
 
