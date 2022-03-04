@@ -120,15 +120,15 @@ async def on_message(message):
 
   if msg.startswith('I need help from Wolf'):
       await message.reply(responses.res5_0)
-  if msg.startswith('I need help from France'):
+  if msg.startswith('I need help from Admin-1'):
       await message.reply(responses.res5_1)
-  if msg.startswith('I need help from Dread'):
+  if msg.startswith('I need help from admin-2'):
       await message.reply(responses.res5_2)
   if msg.startswith('I need help from wolf'):
       await message.reply(responses.res5_0)
-  if msg.startswith('I need help from france'):
+  if msg.startswith('I need help from admin-1'):
       await message.reply(responses.res5_1)
-  if msg.startswith('I need help from dread'):
+  if msg.startswith('I need help from admin-2'):
       await message.reply(responses.res5_2) 
   if msg.startswith('I need help from mods'):
       await message.reply(responses.res6.format(message))
