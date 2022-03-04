@@ -1,3 +1,4 @@
+#Not actively used, reserved for future use!
 import discord
 import random
 from replit import db

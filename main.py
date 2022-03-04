@@ -34,7 +34,7 @@ async def whereAmI(ctx, *, messageContents):
 async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(
-        f'Hi {member.name}, welcome to the Black Ops Special Forces Server! We ask that you check out our rules and announcments before posting. If you have any questions or need help say "I need help from mods" in chat'
+        f'Hi {member.name}, welcome to the Server! We ask that you check out our rules and announcments before posting. If you have any questions or need help say "I need help from mods" in chat.'
     )
 
 #DM new member joining ends now.
